@@ -166,9 +166,7 @@ public class RoomManagerTest {
         
         try{
             Room roomNull = room1;
-            roomNull.setCapacity(null);
             roomNull.setDescription(null);
-            roomNull.setPriceForNight(null);
             roomNull.setRoomNumber(null);
             roomManager.updateRoom(roomNull);
             fail("Update test - null arguments");
