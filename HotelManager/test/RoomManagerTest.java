@@ -18,7 +18,6 @@ import static org.junit.Assert.*;
 public class RoomManagerTest {
     
     private Room room;
-    private Room roomCapacityNull;
     private Room roomCapacityZero;
     private Room roomNumberNull;
     private Room roomNumberEmpty;
@@ -33,9 +32,6 @@ public class RoomManagerTest {
         room = new Room();
         room = createRoom(5, "Luxury room", 200, "001");
         
-        roomCapacityNull = new Room();
-        roomCapacityNull = createRoom(null, "Small room", 100, "002");
-                
         roomCapacityZero = new Room();
         roomCapacityZero = createRoom(0, "Nobody room", 20, "003");
         
@@ -56,13 +52,6 @@ public class RoomManagerTest {
     
     @Test
     public void createRoomTest(){
-        try{
-            roomManager.createRoom(roomCapacityNull);
-            fail("Create test - null capacity no exception");
-        }catch (NullPointerException ex){
-        }catch (Exception ex){
-                fail ("Create test - null capacity bad exception" + ex);
-        }
         
         try{
             roomManager.createRoom(roomCapacityZero);
@@ -114,7 +103,8 @@ public class RoomManagerTest {
         
         try{
             Room returnedRoom = roomManager.createRoom(room);
-            assertDeepEquals(room, returnedRoom);
+            Room foundRoom = roomManager.findRoom(returnedRoom.getId());
+            assertDeepEquals(foundRoom, returnedRoom);
         }catch (Exception ex){
                 fail ("Create test - zero capacity bad exception" + ex);
         }
@@ -123,10 +113,6 @@ public class RoomManagerTest {
     
     @Test
     public void updateRoomImplTest(){
-//        Room roomCapacityNull = createRoom();
-//        roomManager.createRoom(roomCapacityNull);
-//        roomCapacityNull.setCapacity(null);
-        
         Room room1 = createRoom(1,"Small Room",100,"001");
         Room room2 = createRoom(2,"Double Room", 180,"002");
         Room room3 = createRoom(2,"Twin Room", 180, "003");
@@ -200,13 +186,14 @@ public class RoomManagerTest {
     
     
     private void assertDeepEquals(Room room1, Room room2){
+        assertEquals(room1.getId(), room2.getId());
         assertEquals(room1.getCapacity(), room2.getCapacity());
         assertEquals(room1.getDescription(), room2.getDescription());
         assertEquals(room1.getPriceForNight(), room2.getPriceForNight());
         assertEquals(room1.getRoomNumber(), room2.getRoomNumber());
     }
     
-    private static Room createRoom(Integer capacity, String description, Integer price, String number){
+    private static Room createRoom(int capacity, String description, Integer price, String number){
         Room room = new Room();
         room.setCapacity(capacity);
         room.setDescription(description);
