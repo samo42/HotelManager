@@ -182,24 +182,14 @@ public class RoomManagerTest {
                 fail ("Create test - zero capacity bad exception" + ex);
         }
         
-    }
-    
-    
-    private void assertDeepEquals(Room room1, Room room2){
-        assertEquals(room1.getId(), room2.getId());
-        assertEquals(room1.getCapacity(), room2.getCapacity());
-        assertEquals(room1.getDescription(), room2.getDescription());
-        assertEquals(room1.getPriceForNight(), room2.getPriceForNight());
-        assertEquals(room1.getRoomNumber(), room2.getRoomNumber());
-    }
-    
-    private static Room createRoom(int capacity, String description, Integer price, String number){
-        Room room = new Room();
-        room.setCapacity(capacity);
-        room.setDescription(description);
-        room.setPriceForNight(price);
-        room.setRoomNumber(number);
-        return room;
+        try{
+            roomManager.updateRoom(null);
+            fail("Update test - null no exception");
+        }catch (NullPointerException ex){
+        }catch (Exception ex){
+                fail ("Create test - null bad exception" + ex);
+        }
+        
     }
     
     @Test
@@ -242,6 +232,33 @@ public class RoomManagerTest {
                 fail ("delete test - bad exception" + ex);
         }
         
+        try{
+            roomManager.deleteRoom(null);
+            fail("delete test - deleted non existing room");
+        }catch (NullPointerException ex){
+        }catch (Exception ex){
+                fail ("delete test - bad exception" + ex);
+        }
+        
+    }
+    
+    
+    
+    private void assertDeepEquals(Room room1, Room room2){
+        assertEquals(room1.getId(), room2.getId());
+        assertEquals(room1.getCapacity(), room2.getCapacity());
+        assertEquals(room1.getDescription(), room2.getDescription());
+        assertEquals(room1.getPriceForNight(), room2.getPriceForNight());
+        assertEquals(room1.getRoomNumber(), room2.getRoomNumber());
+    }
+    
+    private static Room createRoom(int capacity, String description, Integer price, String number){
+        Room room = new Room();
+        room.setCapacity(capacity);
+        room.setDescription(description);
+        room.setPriceForNight(price);
+        room.setRoomNumber(number);
+        return room;
     }
     
 }
