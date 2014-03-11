@@ -202,5 +202,46 @@ public class RoomManagerTest {
         return room;
     }
     
+    @Test
+    public void deleteTest(){
+        Room room1 = createRoom(10, "First Room", 20, "001");
+        Room room2 = createRoom(2, "Second Room", 211, "002");
+        Room notInDbRoom = createRoom(1, "Third Room", 223, "003");
+        
+        //implement later
+        Room createdRoom = roomManager.createRoom(room1);
+        Room deletedRoom = roomManager.createRoom(room2);
+        roomManager.deleteRoom(deletedRoom);
+        
+        try{
+            roomManager.deleteRoom(createdRoom);
+        }catch (Exception ex){
+        fail("delete test - bad exception");
+        }
+        try{
+            roomManager.findRoom(createdRoom.getId());
+            fail("delete test - deleted room found");
+        }catch (NullPointerException ex){
+        }catch (Exception ex){
+                fail ("delete test - bad exception" + ex);
+        }
+        
+        try{
+            roomManager.deleteRoom(deletedRoom);
+            fail("delete test - deleted room");
+        }catch (NullPointerException ex){
+        }catch (Exception ex){
+                fail ("delete test - bad exception" + ex);
+        }
+        
+        try{
+            roomManager.deleteRoom(notInDbRoom);
+            fail("delete test - deleted non existing room");
+        }catch (NullPointerException ex){
+        }catch (Exception ex){
+                fail ("delete test - bad exception" + ex);
+        }
+        
+    }
     
 }
