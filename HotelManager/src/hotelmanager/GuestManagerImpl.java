@@ -4,7 +4,7 @@
  */
 package hotelmanager;
 
-import Entities.Room;
+import Entities.Guest;
 import Interfaces.GuestManager;
 import java.util.List;
 
@@ -15,27 +15,27 @@ import java.util.List;
 public class GuestManagerImpl implements GuestManager {
 
     @Override
-    public Room createGuest(Room guest) {
+    public Guest createGuest(Guest guest) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void updateGuest(Room guest) {
+    public void updateGuest(Guest guest) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deleteGuest(Room guest) {
+    public void deleteGuest(Guest guest) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Room findGuest(Integer id) {
+    public Guest findGuest(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Room> findAllGuests() {
+    public List<Guest> findAllGuests() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -4,7 +4,7 @@
  */
 package Interfaces;
 
-import Entities.Room;
+import Entities.Guest;
 import java.util.List;
 
 /**
@@ -13,13 +13,13 @@ import java.util.List;
  */
 public interface GuestManager {
     
-    public Room createGuest(Room guest);
+    public Guest createGuest(Guest guest);
     
-    public void updateGuest(Room guest);
+    public void updateGuest(Guest guest);
     
-    public void deleteGuest(Room guest);
+    public void deleteGuest(Guest guest);
     
-    public Room findGuest(Integer id);
+    public Guest findGuest(Integer id);
     
-    public List<Room> findAllGuests();
+    public List<Guest> findAllGuests();
 }
