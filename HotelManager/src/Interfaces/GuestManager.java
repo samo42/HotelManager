@@ -12,6 +12,12 @@ import java.util.List;
  * @author xpetovks
  */
 public interface GuestManager {
+    /**
+     * 
+     * 
+     * @param guest
+     * @return guest with id 
+     */
     
     public Guest createGuest(Guest guest);
     
