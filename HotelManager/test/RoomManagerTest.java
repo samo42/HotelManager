@@ -113,7 +113,7 @@ public class RoomManagerTest {
         roomManager.updateRoom(room2);
     }
     
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void updateNotInDbRoom(){
         Room room3 = createRoom(2,"Twin Room", 180, "003");
         room3.setDescription("Updated Room3");
@@ -123,10 +123,16 @@ public class RoomManagerTest {
 //    @Test
 //    public void deleteTest(){
 //        Room room1 = createRoom(10, "First Room", 20, "001");
-//        Room room2 = createRoom(2, "Second Room", 211, "002");
+//        Room createdRoom = roomManager.createRoom(room1);
+//        
+//        roomManager.deleteRoom(room1);
+//        assertNull(room1);
+//    }
+        
+        //        Room room2 = createRoom(2, "Second Room", 211, "002");
 //        Room notInDbRoom = createRoom(1, "Third Room", 223, "003");
 //        
-//        Room createdRoom = roomManager.createRoom(room1);
+
 //        Room deletedRoom = roomManager.createRoom(room2);
 //        roomManager.deleteRoom(deletedRoom);
 //        
