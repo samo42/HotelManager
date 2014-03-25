@@ -17,7 +17,7 @@ public interface GuestManager {
      * 
      * @param guest
      * @return guest with id 
-     * dfdf
+     * 
      */
     
     public Guest createGuest(Guest guest);

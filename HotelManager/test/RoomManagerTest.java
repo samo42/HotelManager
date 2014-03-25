@@ -27,7 +27,7 @@ public class RoomManagerTest {
     
     private RoomManager roomManager = new RoomManagerImpl();
     
-    @Before
+    @Before 
     public void setUp() {
         room = new Room();
         room = createRoom(5, "Luxury room", 200, "001");

@@ -21,7 +21,7 @@ public interface RoomManager {
      * @throws NullPointerException when room, description or number is null
      * @return created room with ID
      */
-    public Room createRoom(Room room);
+    public Room createRoom(Room room) throws ServiceFailureException;
     /**
      * Updates existing room.
      * 
