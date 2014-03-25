@@ -88,9 +88,9 @@ public class RoomManagerTest {
         
     @Test
     public void createRoomTest() {
-        Room returnedRoom = roomManager.createRoom(room);
-        Room foundRoom = roomManager.findRoom(returnedRoom.getId());
-        assertDeepEquals(foundRoom, returnedRoom);
+        roomManager.createRoom(room);
+        Room foundRoom = roomManager.findRoom(room.getId());
+        assertDeepEquals(foundRoom, room);
     }
         
     @Test
